@@ -44,8 +44,8 @@ jobs:
     - run: npm run build -if--present
     #- run: npx browserslist --update-db
     
-    - name: Deploy
-      run: aws s3 sync /home/ubuntu/actions-runner/_work/SnapShot/SnapShot/build/** s3://scoutmountainapp 
+    #- name: Deploy
+    #  run: aws s3 sync /home/ubuntu/actions-runner/_work/SnapShot/SnapShot/build/** s3://scoutmountainapp 
       
       #env:
       #  AWS_S3_BUCKET: scoutmountainapp
