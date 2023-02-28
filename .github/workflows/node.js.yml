@@ -18,6 +18,9 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
+    - uses: actions/checkout@v2
+    - name: Cache modules
+      uses: actions/cache@v1
     - name: Configure AWS credentials    
       uses: aws-actions/configure-aws-credentials@v1
       with:
