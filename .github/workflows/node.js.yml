@@ -33,7 +33,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with: 
         name: SnapScout_mountain
-        path: /home/ubuntu/react/_work/assignment1/assignment1/build/**
+        path: /home/ubuntu/actions-runner/_work/SnapShot/SnapShot/build/**
 
     
     
