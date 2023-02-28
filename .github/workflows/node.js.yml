@@ -28,6 +28,9 @@ jobs:
     - name: Install dependencies
       run: npm install
       
+    - name: NPX
+      run: npx browserslist --update-db
+    
     - name: Build project 1
       run: npm run build -if--present
     
