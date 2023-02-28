@@ -44,4 +44,4 @@ jobs:
         AWS_REGION: 'us-east-1'   # optional: defaults to us-east-1
                 
     - name: Upload to s3
-      run: aws s3 cp ./home/ubuntu/actions-runner/_work/SnapShot/SnapShot/build/SnapScout_mountain.zip s3://soutmountainapp
+      run: aws s3 cp ./home/ubuntu/actions-runner/_work/SnapShot/SnapShot/build/SnapScout_mountain.zip s3://react-deploy01
