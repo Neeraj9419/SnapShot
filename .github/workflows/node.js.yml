@@ -27,18 +27,13 @@ jobs:
     #    cache: 'npm'
     #- run: npm install       
     
-    - name: Install JS dependencies Yarn setup
+    - name: Install JS dependencies npm setup
       uses: actions/setup-node@v1
       with: 
         node-version: ${{ matrix.node-version }}
-        cache: 'yarn'
-    - run: yarn install     
-   #- run: yarn build -if--present
-   #- run: yarn test
+        cache: 'npm'
     - run: npx browserslist --update-db
-    - run: yarn start
-    
-    
+    - run: npm build -if--present
 
     #- name: Configure AWS Credential
     #  uses: Neeraj9419/SnapShot@master
