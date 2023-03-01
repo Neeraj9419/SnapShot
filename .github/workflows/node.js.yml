@@ -46,4 +46,4 @@ jobs:
           AWS_REGION: ${{ secrets.AWS_REGION }} # optional: defaults to us-east-1
                 
     - name: Upload to s3
-      run: aws s3 sync ./home/ubuntu/actions-runner/_work/SnapShot/SnapShot/build/SnapScout_mountain.zip s3://reactappdeploy01
+      run: aws s3 sync ./home/ubuntu/actions-runner/_work/SnapShot/SnapShot/build/SnapScout_mountain.zip arn:aws:s3:::reactappdeploy01
