@@ -31,12 +31,16 @@ jobs:
       uses: actions/setup-node@v1
       with: 
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npx browserslist --update-db
+        cache: 'yarn'
+   # - run: npx browserslist --update-db
+    - run: yarn add update-browserslist-db
   
-    - run: npm install
-    #- run: yarn run build -if--present
-    - run: npm run build
+    - run: yarn install
+    # - run: yarn run build -if--present
+    - run: yarn start
+    
+ 
+    
 
     #- name: Configure AWS Credential
     #  uses: Neeraj9419/SnapShot@master
