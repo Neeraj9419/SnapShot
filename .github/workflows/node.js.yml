@@ -32,9 +32,10 @@ jobs:
       with: 
         node-version: ${{ matrix.node-version }}
     - run: yarn install     
+    - run: yarn run build -if--present
     - run: yarn start
     
-    #- run: yarn run build -if--present
+    
 
     #- name: Configure AWS Credential
     #  uses: Neeraj9419/SnapShot@master
