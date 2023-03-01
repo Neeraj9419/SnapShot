@@ -29,12 +29,6 @@ jobs:
     - run: npm run build -if--present
     - run: npx browserslist --update-db
     
-    - name: Use the Upload Artifact GitHub Action
-      uses: actions/upload-artifact@v2
-      with: 
-        name: SnapScout_mountain
-        path: /home/ubuntu/actions-runner/_work/SnapShot/SnapShot/build
-        
     - name: Configure AWS Credential
       uses: Neeraj9419/SnapShot@master
       with:
@@ -46,4 +40,4 @@ jobs:
           AWS_REGION: ${{ secrets.AWS_REGION }} # optional: defaults to us-east-1
                 
     - name: Upload to s3
-      run: aws s3 sync ./home/ubuntu/actions-runner/_work/SnapShot/SnapShot/build/SnapScout_mountain.zip s3://myreactappbucket
+      run: aws s3 sync /home/ubuntu/actions-runner/_work/SnapShot/SnapShot/build/ s3://myreactappbucket
