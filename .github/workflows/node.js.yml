@@ -44,7 +44,6 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }} # optional: defaults to us-east-1
-          SOURCE_DIR: 'reports'      # optional: defaults to entire repository
                 
     - name: Upload to s3
       run: aws s3 sync ./home/ubuntu/actions-runner/_work/SnapShot/SnapShot/build/SnapScout_mountain.zip s3://reactappdeploy01
