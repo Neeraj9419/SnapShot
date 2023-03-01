@@ -38,10 +38,9 @@ jobs:
     - name: Configure AWS Credential
       uses: Neeraj9419/SnapShot@master
       with:
-        AWS_S3_BUCKET: ${{ Secrets.AWS_S3_BUCKET }}
-        AWS_ACCESS_KEY_ID: ${{ Secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ Secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_REGION: 'us-east-1'   # optional: defaults to us-east-1
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-2
                 
     - name: Upload to s3
       run: aws s3 sync ./home/ubuntu/actions-runner/_work/SnapShot/SnapShot/build/SnapScout_mountain.zip s3://reactappdeploy01
