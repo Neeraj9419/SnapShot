@@ -39,5 +39,8 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }} # optional: defaults to us-east-1
                 
-    - name: Upload to s3
-      run: aws s3 cp ./build s3://myreactappbucket
+   # - name: Upload to s3
+    #  run: aws s3 cp ./build s3://myreactappbucket
+      
+    - name: Upload to s3  
+      run: aws s3 cp ./home/ubuntu/actions-runner/_work/SnapShot/SnapShot/build s3://myreactappbucket/ --recursive  
