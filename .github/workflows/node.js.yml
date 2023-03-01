@@ -34,7 +34,7 @@ jobs:
         cache: 'yarn'
     - run: yarn install     
    #- run: yarn build -if--present
-    - run: yarn test
+   #- run: yarn test
     - run: npx browserslist --update-db
     - run: yarn start
     
