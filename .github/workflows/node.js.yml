@@ -32,12 +32,11 @@ jobs:
       with: 
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-   # - run: npx browserslist --update-db
-    - run: yarn add update-browserslist-db
-    - run: yarn install
+    - run: npx browserslist --update-db
+  
+    - run: npm install
     #- run: yarn run build -if--present
-    - run: yarn start
-    - run: yarn build
+    - run: npm build
 
     #- name: Configure AWS Credential
     #  uses: Neeraj9419/SnapShot@master
