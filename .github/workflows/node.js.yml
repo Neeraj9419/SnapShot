@@ -1,24 +1,61 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
 name: Node.js CI
 
 on:
   push:
-    branches:
-      - master
+    branches: [ "master" ]
+
 jobs:
   build:
+
     runs-on: self-hosted
 
-    steps:
-      - uses: actions/checkout@v3
+    strategy:
+      matrix:
+        node-version: [16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
-      - name: Set up Node.js version
-      - uses: actions/setup-node@v3
-        with:
-           node-version: 16.x
-           cache: 'npm'
-           
-      - name: build the artifact
-        shell: bash
-        run: |
-          npm  ci
-          npm run build
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        
+    - name: build the artifact
+      shell: bash
+      run: |
+        npm run build
+        
+        
+        
+        
+#     #- run: npm install       
+    
+#     - name: Install JS dependencies npm setup
+#       uses: actions/setup-node@v1
+#       with: 
+#         node-version: ${{ matrix.node-version }}
+#         cache: 'yarn'
+#     - run: npx browserslist --update-db
+  
+#     - run: yarn install
+#     #- run: yarn run build -if--present
+#     - run: yarn build
+
+    #- name: Configure AWS Credential
+    #  uses: Neeraj9419/SnapShot@master
+    #  with:
+    #    args: --acl public-read --follow-symlinks --delete --exclude '.git*/*'
+    #  env:
+    #      AWS_S3_BUCKET: 'myreactappbucket'
+    #      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    #      AWS_REGION: ${{ secrets.AWS_REGION }} # optional: defaults to us-east-1
+            
+ #   - name: Upload to s3
+ #     run: aws s3 cp ./SnapShot/build s3://myreactappbucket --recursive
