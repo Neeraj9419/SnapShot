@@ -19,34 +19,22 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    
-    #- name: Use Node.js ${{ matrix.node-version }}
-    #  uses: actions/setup-node@v3
-    #  with:
-    #    node-version: ${{ matrix.node-version }}
-    #    cache: 'npm'
-    #- run: npm install       
-    
-    - name: Install JS dependencies npm setup
-      uses: actions/setup-node@v1
-      with: 
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
         node-version: ${{ matrix.node-version }}
-        cache: 'yarn'
-    - run: npx browserslist --update-db
-  
-    - run: yarn install
-    #- run: yarn run build -if--present
-    - run: yarn build
+        cache: 'npm'
 
-    #- name: Configure AWS Credential
-    #  uses: Neeraj9419/SnapShot@master
-    #  with:
-    #    args: --acl public-read --follow-symlinks --delete --exclude '.git*/*'
-    #  env:
-    #      AWS_S3_BUCKET: 'myreactappbucket'
-    #      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-    #      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    #      AWS_REGION: ${{ secrets.AWS_REGION }} # optional: defaults to us-east-1
-            
- #   - name: Upload to s3
- #     run: aws s3 cp ./SnapShot/build s3://myreactappbucket --recursive
+    - run: npm install
+    - run: npm run build -if--present
+    - run: npx browserslist --update-db
+    
+    - name: Configure AWS Credential
+      uses: Neeraj9419/SnapShot@master
+      with:
+        args: --acl public-read --follow-symlinks --delete --exclude '.git*/*'
+      env:
+          AWS_S3_BUCKET: 'myreactappbucket'
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }} # optional: defaults to us-east-1
