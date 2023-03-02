@@ -32,7 +32,7 @@ jobs:
     - name: Configure AWS Credential
       uses: Neeraj9419/SnapShot@master
       with:
-        args: --acl public-read --follow-symlinks --delete --exclude '.git*/*'
+        args: --acl public-read --follow-symlinks --delete --exclude '.build/*'
       env:
           AWS_S3_BUCKET: 'myreactappbucket'
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
