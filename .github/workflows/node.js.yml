@@ -1,4 +1,4 @@
-name: Build and deploy Node.js app to Azure Web App on GitHub
+name: Node.js CI
 
 on:
   push:
@@ -14,8 +14,9 @@ jobs:
       - name: Set up Node.js version
       - uses: actions/setup-node@v3
         with:
-           node-version: 16
+           node-version: 16.x
            cache: 'npm'
+           
       - name: build the artifact
         shell: bash
         run: |
