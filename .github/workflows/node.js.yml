@@ -30,6 +30,7 @@ jobs:
       shell: bash
       run: |
         yarn install
+        npx browserslist --update-db
         yarn run build
         
         
