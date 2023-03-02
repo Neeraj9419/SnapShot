@@ -28,7 +28,6 @@ jobs:
     - name: build the artifact
       shell: bash
       run: |
-        npm  ci
         npm run build
 
 #     - run: npm install
